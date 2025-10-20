@@ -62,10 +62,10 @@ public class MetodosVehiculo {
      * Borra una entrada de vehiculo con el valor de prezomayorista 11.99
      * @param conn conexion
      */
-    public static void borrarEntrada(Connection conn){
+    public static void borrarEntrada(Connection conn, int id){
         String sql = "Delete From vehiculo WHERE id = ?";
         try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setInt(1,1);
+            pstm.setInt(1,id);
             int filasAfectadas = pstm.executeUpdate();
             System.out.println("Entrada borrada exitosamente:"+ filasAfectadas);
         }catch (SQLException e){

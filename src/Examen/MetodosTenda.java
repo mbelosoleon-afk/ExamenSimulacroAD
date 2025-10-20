@@ -45,10 +45,10 @@ public class MetodosTenda {
             System.out.println("Error con la base: "+e.getMessage());
         }
     }
-    static void borrarEntrada(Connection conn){
+    static void borrarEntrada(Connection conn,int id){
         String sql = "Delete From inventariotenda WHERE prezomayorista = ?";
         try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setDouble(1,11.99);
+            pstm.setDouble(1,id);
             int filasAfectadas = pstm.executeUpdate();
             System.out.println("Entrada borrada exitosamente:"+ filasAfectadas);
         }catch (SQLException e){
